@@ -1,0 +1,84 @@
+body * {
+    font-family: sans-serif, 微軟正黑體;
+}
+body {
+    margin: auto;
+    background-color: #227700;
+    min-width: 1050px;
+    position: relative;
+    z-index: -9999;
+}
+header {
+    margin: 0 auto;
+    width: 1020px;
+    height: 64px;
+    background: linear-gradient(top, #1abc9c, #16a085);
+    background: -moz-linear-gradient(top, #1abc9c, #16a085);
+    background: -webkit-linear-gradient(top, #1abc9c, #16a085);
+}
+.head-bar {
+    position: absolute;
+    width: 100%;
+    background: linear-gradient(top, #1abc9c, #16a085);
+    background: -moz-linear-gradient(top, #1abc9c, #16a085);
+    background: -webkit-linear-gradient(top, #66B28D, #16a085);
+}
+.logo {
+    background-image: url(logo.png);
+    position: relative;
+    display: inline-block;
+    height: 58px;
+    width: 220px;
+    margin-left: 10px;
+    text-align: center;
+}
+.search-bar {
+    height: 20px;
+    padding: 8px;
+    border: 0px;
+    border-radius: 4px;
+    box-shadow: inset 1px 2px 6px #178889, inset 0 -5px #54A67E;
+}
+.search-bar-frame {
+    position: absolute;
+    display: inline-block;
+    width: 250px;
+    margin-top: 20px;
+    margin-left: 340px;
+}
+header .buttons-frame {
+    position: absolute;
+    display: inline-block;
+    margin-left: 610px;
+}
+header button {
+    display: inline-block;
+    margin: 14px;
+    height: 40px;
+    min-width: 40px;
+}
+.link-bar {
+    background: linear-gradient(top, #16a085, #1abc9c);
+    background: -moz-linear-gradient(top, #16a085, #1abc9c);
+    background: -webkit-linear-gradient(top, #16a085, #1abc9c);
+    width: 100%;
+    padding-left: calc(50% - 510px);
+    padding-right: calc(510px - 50%);
+    box-shadow: 0 10px 20px;
+}
+.container {
+    margin: 10px auto;
+    width: 1020px;
+    background-color: white;
+    box-shadow: 10px 0px 100px, -10px 0px 100px;
+    position: relative;
+    z-index: -1;
+}
+footer {
+    min-height: 100px;
+    padding-top: 20px;
+    text-align: center;
+}
+.visible {
+    visibility: visible;
+}

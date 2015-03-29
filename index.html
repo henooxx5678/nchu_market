@@ -1,0 +1,261 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>興大商品市集</title>
+    <link type="text/css" rel="stylesheet" href="static/css/groundwork.css">
+
+    <link type="text/css" rel="stylesheet" href="main.css">
+    <style type="text/css">
+        nav {
+            margin: 10px;
+            padding-top: 20px;
+        }
+        nav div {
+            float: left;
+            height: 40px;
+            width: 125px;
+        }
+        nav div button {
+            height: 40px;
+            width: 125px;
+            visibility: hidden;
+            border-radius: 0px;
+            border: 0px;
+            background: radial-gradient(top left, #19FF8F, #27ae60);
+            background: -moz-radial-gradient(top left, #19FF8F, #27ae60);
+            background: -webkit-radial-gradient(top left, #19FF8F, #27ae60);
+            font-size: 11pt;
+            font-weight: bolder;
+            font-family: '新細明體';
+            color: #585858;
+            box-shadow: 5px 5px 10px;
+        }
+        .button-not-first {
+            box-shadow: 5px 5px 10px, 0 -1px 5px;
+        }
+        .buttonRegion {
+            position: absolute;
+        }
+        .case-container {
+            min-height: 700px;
+        }
+        .case-box {
+            height: 96px;
+            width: 800px;
+            margin: 0 auto;
+            background-color: #ecf0f1;
+        }
+        .commodity-title {
+            height: 32px;
+            line-height: 32px;
+        }
+        .sell-case .commodity-title {
+            background: linear-gradient(top, #70FF70, #52CC29);
+            background: -moz-linear-gradient(top, #70FF70, #52CC29);
+            background: -webkit-linear-gradient(top, #70FF70, #52CC29);
+        }
+        .buy-case .commodity-title {
+            background: linear-gradient(top, #FFCC22, #CCA31B);
+            background: -moz-linear-gradient(top, #FFCC22, #CCA31B);
+            background: -webkit-linear-gradient(top, #FFCC22, #CCA31B);
+        }
+        .like-value {
+            display: inline-block;
+            min-width: 36px;
+            font-weight: normal;
+            font-size: 9pt;
+            color: red;
+        }
+        .like-label {
+            font-size: 9pt;
+            font-weight: bolder;
+            color: blue;
+        }
+    </style>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript" language="javascript">
+        google.load("jquery", "1.3");
+    </script>
+</head>
+
+<body>
+    <div class="head-bar turquoise-bg" style="height: 64px"></div>
+    <header class="">
+        <div class="logo"></div>
+        <div class="search-bar-frame">
+            <form>
+                <input type="search" size="30" placeholder="Search..." onsearch="search(this.value)" class="search-bar">
+            </form>
+        </div>
+        <div class="buttons-frame">
+            <button id="log_button" onclick="clickLog()">
+                登??
+            </button>
+            <button id="tools_button" onclick="clickTools()">
+                tool
+            </button>
+        </div>
+    </header>
+    <div class="link-bar">//some linked-gate</div>
+
+    <div class="container">
+        <nav>
+            <div>
+                <div class="buttonRegion" id="class0Region">
+                    <!-- Buttons & onEventListener generate by javascript -->
+                </div>
+            </div>
+            <div>
+                <div class="buttonRegion" id="class1Region">
+                    <!-- Buttons & onEventListener generate by javascript -->
+                </div>
+            </div>
+            <div>
+                <div class="buttonRegion" id="class2Region">
+                    <!-- Buttons & onEventListener generate by javascript -->
+                </div>
+            </div>
+            <div>
+                <div class="buttonRegion" id="class3Region">
+                    <!-- Buttons & onEventListener generate by javascript -->
+                </div>
+            </div>
+            <div>
+                <div class="buttonRegion" id="class4Region">
+                    <!-- Buttons & onEventListener generate by javascript -->
+                </div>
+            </div>
+            <div>
+                <div class="buttonRegion" id="class5Region">
+                    <!-- Buttons & onEventListener generate by javascript -->
+                </div>
+            </div>
+            <div>
+                <div class="buttonRegion" id="class6Region">
+                    <!-- Buttons & onEventListener generate by javascript -->
+                </div>
+            </div>
+            <div>
+                <div class="buttonRegion" id="class7Region">
+                    <!-- Buttons & onEventListener generate by javascript -->
+                </div>
+            </div>
+            <p style="clear: both"></p>
+        </nav>
+        <script language="Javascript">
+            // generate html
+            var theNav = document.querySelector("nav");
+            var divsButtonRegion = new Array();
+            var subButtonsInNav = new Array();
+            var buttonTitlesList;
+            $.getJSON("title_of_navButtons.json", function (data) {
+                buttonTitlesList = data;
+                for (var i = 0; i < buttonTitlesList.length; i++) {
+                    var mainButton = document.createElement("button");
+                    mainButton.className = "visible";
+                    mainButton.innerHTML = buttonTitlesList[i].title;
+                    divsButtonRegion[i] = theNav.querySelector("#class" + i + "Region");
+                    //divsButtonRegion[i].style.visibility = "hidden";
+                    divsButtonRegion[i].setAttribute("onmouseover", "mouseOverMainClassButton(" + i + ")");
+                    divsButtonRegion[i].setAttribute("onmouseout", "mouseOutButtonRegion(" + i + ")");
+                    divsButtonRegion[i].innerHTML += mainButton.outerHTML;
+                    subButtonsInNav[i] = new Array();
+                    for (var j = 0; j < buttonTitlesList[i].sub.length; j++) {
+                        subButtonsInNav[i][j] = document.createElement("button");
+                        subButtonsInNav[i][j].className = "button-not-first underclass" + i;
+                        subButtonsInNav[i][j].innerHTML = buttonTitlesList[i].sub[j].title;
+                        divsButtonRegion[i].innerHTML += subButtonsInNav[i][j].outerHTML;
+                    }
+                }
+                colorNavButtons();
+            });
+        </script>
+
+        <!-- Mian display: -->
+
+        <div class="case-container">
+            <p id="no-commodity-info">目前暫無任何商品。</p>
+            <div class="case-box" style="display: none">
+                <div style="width: 128px; height: 96px; float: left; background-color: lightblue; border: black 1px solid">#theImage</div>
+                <div class="commodity-title">
+                    #name
+                    <button style="float: right; width: 95px; height: 100%; border-radius: 0; background-color: pink">#like</button>
+                </div>
+                <p style="width: 50%; float: left">
+                    #price
+                    <br>#quantity
+                    <br>#state
+                </p>
+                <p style="float: right; width: 30%">
+                    #publisher
+                    <br>#publish_date
+                    <br>#popularity
+                </p>
+            </div>
+        </div>
+
+    </div>
+    <footer>
+        <p>footer</p>
+    </footer>
+
+    <script language="JavaScript">
+        // Event function
+        function clickTools() {
+            alert("clickTools");
+        }
+
+        function clickLog() {
+            alert("clickLog");
+        }
+
+        function search(value) {
+            if (value != "") {
+                alert("search: " + value);
+            }
+        }
+
+        function mouseOverMainClassButton(num) {
+            var regionId = "class" + num + "Region";
+            var buttonClassName = ".underclass" + num;
+            var theRegion = document.getElementById(regionId);
+            var theButtonElements = document.querySelectorAll(buttonClassName);
+            // unhide button
+            for (var i = 0; i < theButtonElements.length; i++) {
+                theButtonElements[i].style.visibility = "visible";
+            }
+            // spread buttonRegion
+            theRegion.style.height = (40 * (theButtonElements.length + 1)).toString() + "px";
+        }
+
+        function mouseOutButtonRegion(num) {
+            var regionId = "#class" + num + "Region";
+            var buttonClassName = ".underclass" + num;
+            var theRegion = document.querySelector(regionId);
+            var theButtonElements = document.querySelectorAll(buttonClassName);
+            // hide button
+            for (var i = 0; i < theButtonElements.length; i++) {
+                theButtonElements[i].style.visibility = "hidden";
+            }
+            // reset buttonRegion
+            theRegion.style.height = "40px";
+        }
+
+
+        function colorNavButtons() {
+            var navColors = new Array("#55FFAC", "#7ad59d", "#6dd193", "#60cd8a");
+            var buttonRegions = document.querySelectorAll(".buttonRegion");
+            for (var i = 0; i < buttonRegions.length; i++) {
+                var theButtons = buttonRegions[i].querySelectorAll("button");
+                for (var j = 0; j < theButtons.length; j++) {
+                    theButtons[j].style.backgroundColor = navColors[i % 1];
+                }
+            }
+        }
+    </script>
+    <script type="text/javascript" src="generate_case-box.js"></script>
+</body>
+
+</html>

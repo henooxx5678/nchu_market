@@ -1,0 +1,129 @@
+<html>
+
+<head>
+    <title>json editor</title>
+</head>
+
+<body>
+
+    <script language="Javascript">
+        jsonString =
+            '[                                           ' +
+            '    {                                       ' +
+            '       "title": "服飾、隨身包",               ' +
+            '       "sub": [                             ' +
+            '           "上身服裝",                       ' +
+            '           "下身服裝",                       ' +
+            '           "飾品",                          ' +
+            '           "背包",                           ' +
+            '           "手提袋"                          ' +
+            '       ]                                    ' +
+            '    },                                      ' +
+            '    {                                       ' +
+            '       "title": "書、文具",                  ' +
+            '       "sub": [                             ' +
+            '           "教科書",                         ' +
+            '           "圖書",                          ' +
+            '           "文書工具",                       ' +
+            '           "筆記本",                         ' +
+            '           "便條紙"                          ' +
+            '       ]                                    ' +
+            '    },                                      ' +
+            '    {                                       ' +
+            '       "title": "生活、家用",                 ' +
+            '       "sub": [                             ' +
+            '           "家具",                           ' +
+            '           "廚具",                           ' +
+            '           "餐具",                           ' +
+            '           "生活用品"                        ' +
+            '       ]                                    ' +
+            '    },                                      ' +
+            '    {                                       ' +
+            '       "title": "電子產品",                  ' +
+            '       "sub": [                             ' +
+            '          "電腦",                           ' +
+            '           "手機",                           ' +
+            '           "家電",                           ' +
+            '           "線材、轉接頭",                    ' +
+            '           "其他配件"                        ' +
+            '       ]                                    ' +
+            '    },                                      ' +
+            '    {                                       ' +
+            '       "title": "運動用品",                  ' +
+            '       "sub": [                             ' +
+            '           "球類",                           ' +
+            '           "球拍",                           ' +
+            '           "其他球具",                       ' +
+            '           "健身器材"                        ' +
+            '       ]                                    ' +
+            '    },                                      ' +
+            '    {                                       ' +
+            '       "title": "食品",                      ' +
+            '       "sub": [                             ' +
+            '           "飲料、湯",                       ' +
+            '           "泡麵、零食",                      ' +
+            '           "食材",                           ' +
+            '           "調味品"                          ' +
+            '       ]                                    ' +
+            '    },                                      ' +
+            '    {                                       ' +
+            '       "title": "交通工具",                  ' +
+            '       "sub": [                             ' +
+            '           "滑板",                           ' +
+            '           "腳踏車",                          ' +
+            '           "機車",                            ' +
+            '           "汽車"                             ' +
+            '       ]                                     ' +
+            '    },                                       ' +
+            '    {                                        ' +
+            '       "title": "其他",                       ' +
+            '       "sub": [                              ' +
+            '           "彩妝用品",                        ' +
+            '           "樂器",                            ' +
+            '           "票券、抵用券"                      ' +
+            '       ]                                     ' +
+            '    }                                        ' +
+            ']                                            ';
+        jsonObject = JSON.parse(jsonString);
+        jsonObjectNew = JSON.parse(jsonString);
+
+        for (var i = 0; i < jsonObject.length; i++) {
+            for (var j = 0; j < jsonObject[i].sub.length; j++) {
+                jsonObjectNew[i].sub[j] = {
+                    title: jsonObject[i].sub[j],
+                    sub: []
+                };
+            }
+        }
+        jsonStringNew = JSON.stringify(jsonObjectNew);
+        document.write(jsonStringNew);
+
+        /*
+        jsonStringNew = jsonStringNew.replace(/\[/g, '[<br>');
+        jsonStringNew = jsonStringNew.replace(/\{/g, '{<br>');
+        jsonStringNew = jsonStringNew.replace(/\,/g, ',<br>');
+        jsonStringNew = jsonStringNew.replace(/\]/g, '<br>]');
+        jsonStringNew = jsonStringNew.replace(/\}/g, '<br>}');
+        stringArray = jsonStringNew.split('<br>');
+        var levelCounter = 0;
+        for (var i = 0; i < stringArray.length; i++) {
+            for (var j = 0; j < levelCounter; j++) {
+                stringArray[i] = '　　' + stringArray[i];
+            }
+            if (stringArray[i].indexOf('[') >= 0 || stringArray[i].indexOf('{') >= 0) {
+                levelCounter++;
+                console.log(levelCounter);
+            } else if (stringArray[i].indexOf(']') >= 0 || stringArray[i].indexOf('}') >= 0) {
+                levelCounter--;
+            }
+        }
+        var theBody = document.querySelector("body");
+        for (var i = 0; i < stringArray.length; i++) {
+            theBody.innerHTML += stringArray[i] + "<br>";
+        }
+        
+        */
+    </script>
+</body>
+
+</html>

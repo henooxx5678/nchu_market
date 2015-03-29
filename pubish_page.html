@@ -1,0 +1,78 @@
+<html>
+
+<head>
+    <title>興大商品市集-商品刊登</title>
+    <link type="text/css" rel="stylesheet" href="static/css/groundwork.css">
+    <link type="text/css" rel="stylesheet" href="main.css">
+    <style type="text/css">
+        .container {
+            padding-top: 30px;
+        }
+        h2 {
+            text-align: center;
+            font-family: '標楷體', '微軟正黑體';
+            font-size: 30pt;
+        }
+        #input_region form input {
+            width: 200px;
+            display: inline-block;
+        }
+        #input_region form label {
+            width: 200px;
+            text-align: center;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="head-bar turquoise-bg" style="height: 64px"></div>
+    <header class="">
+        <div class="logo">
+            <h1>　</h1>
+        </div>
+        <div class="search-bar-frame">
+            <form>
+                <input type="search" placeholder="Search..." onsearch="search(this.value)" class="search-bar">
+            </form>
+        </div>
+        <button id="log_button" onclick="clickLog()">
+            <i>登??</i>
+        </button>
+        <button id="tools_button" onclick="clickTools()">
+            <i class="icon-wrench icon-1x"></i>
+        </button>
+    </header>
+    <div class="link-bar">//some linked-gate</div>
+
+    <div class="container" id="input_region">
+        <h2>商品刊登</h2>
+        <form>
+            <label>商品名稱</label>
+            <input type="text">
+            <br>
+            <label>使用程度</label>
+            <input type="text">
+            <br>
+            <label>價格</label>
+            <input type="text">
+            <br>
+            <label>數量</label>
+            <input type="text">
+            <br>
+            <br>
+            <div style="width: 404px; margin: 0 auto">
+                <input type="reset">
+                <input type="submit">
+            </div>
+            <br>
+            <br>
+        </form>
+    </div>
+
+    <footer>
+        <p>footer</p>
+    </footer>
+</body>
+
+</html>
